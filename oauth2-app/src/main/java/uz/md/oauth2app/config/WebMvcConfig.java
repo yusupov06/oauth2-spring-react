@@ -4,12 +4,6 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-/**
- * Me: muhammadqodir
- * Project: oaut2-spring-react/IntelliJ IDEA
- * Date:Mon 17/10/22 21:59
- */
-
 @Configuration
 public class WebMvcConfig implements WebMvcConfigurer {
 

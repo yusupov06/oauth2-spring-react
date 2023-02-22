@@ -9,6 +9,7 @@ import uz.md.oauth2app.entity.User;
 import java.util.*;
 
 public class UserPrincipal implements OAuth2User, UserDetails {
+
     private Long id;
     private String email;
     private String password;

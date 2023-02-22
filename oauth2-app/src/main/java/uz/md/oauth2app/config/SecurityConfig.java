@@ -21,11 +21,7 @@ import uz.md.oauth2app.security.oauth2.OAuth2AuthenticationFailureHandler;
 import uz.md.oauth2app.security.oauth2.OAuth2AuthenticationSuccessHandler;
 import uz.md.oauth2app.service.CustomOAuth2UserService;
 
-/**
- * Me: muhammadqodir
- * Project: oaut2-spring-react/IntelliJ IDEA
- * Date:Mon 17/10/22 21:59
- */
+
 
 @Configuration
 @EnableWebSecurity

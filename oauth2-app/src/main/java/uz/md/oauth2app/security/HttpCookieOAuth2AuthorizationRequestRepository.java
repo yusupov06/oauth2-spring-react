@@ -9,11 +9,7 @@ import uz.md.oauth2app.util.CookieUtils;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-/**
- * Me: muhammadqodir
- * Project: oaut2-spring-react/IntelliJ IDEA
- * Date:Mon 17/10/22 22:38
- */
+
 
 @Component
 public class HttpCookieOAuth2AuthorizationRequestRepository implements AuthorizationRequestRepository<OAuth2AuthorizationRequest> {

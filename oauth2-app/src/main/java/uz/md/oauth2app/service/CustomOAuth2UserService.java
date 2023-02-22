@@ -19,11 +19,7 @@ import uz.md.oauth2app.security.oauth2.user.OAuth2UserInfoFactory;
 import java.util.Objects;
 import java.util.Optional;
 
-/**
- * Me: muhammadqodir
- * Project: oaut2-spring-react/IntelliJ IDEA
- * Date:Mon 17/10/22 22:24
- */
+
 
 @Service
 @RequiredArgsConstructor
@@ -45,7 +41,10 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
     private OAuth2User processOAuth2User(OAuth2UserRequest oAuth2UserRequest, OAuth2User oAuth2User) {
         OAuth2UserInfo oAuth2UserInfo = OAuth2UserInfoFactory
-                .getOAuth2UserInfo(oAuth2UserRequest.getClientRegistration().getRegistrationId(), oAuth2User.getAttributes());
+                .getOAuth2UserInfo(oAuth2UserRequest
+                                .getClientRegistration()
+                                .getRegistrationId(),
+                        oAuth2User.getAttributes());
 
         if (Objects.isNull(oAuth2UserInfo.getUsername()) || oAuth2UserInfo.getUsername().isBlank()) {
             throw new OAuth2AuthenticationProcessingException("Username not found from OAuth2 provider");
@@ -53,21 +52,22 @@ public class CustomOAuth2UserService extends DefaultOAuth2UserService {
 
         Optional<User> userOptional = userRepository.findByUsername(oAuth2UserInfo.getUsername());
         User user;
+
         if (userOptional.isPresent()) {
             user = userOptional.get();
+
             if (!user.getProvider().equals(AuthProvider.valueOf(
                     oAuth2UserRequest.getClientRegistration().getRegistrationId()))) {
                 throw new OAuth2AuthenticationProcessingException("Looks like you're signed up with " +
                         user.getProvider() + " account. Please use your " + user.getProvider() +
                         " account to login.");
             }
+
             user = updateExistingUser(user, oAuth2UserInfo);
         } else
             user = registerNewUser(oAuth2UserRequest, oAuth2UserInfo);
 
-
         return UserPrincipal.create(user, oAuth2User.getAttributes());
-
     }
 
     private User registerNewUser(OAuth2UserRequest oAuth2UserRequest, OAuth2UserInfo oAuth2UserInfo) {

@@ -4,18 +4,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import uz.md.oauth2app.entity.User;
 import uz.md.oauth2app.exceptions.ResourceNotFoundException;
 import uz.md.oauth2app.payload.UserPrincipal;
 import uz.md.oauth2app.repository.UserRepository;
 
-/**
- * Me: muhammadqodir
- * Project: oaut2-spring-react/IntelliJ IDEA
- * Date:Mon 17/10/22 22:18
- */
 
+
+@Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
 

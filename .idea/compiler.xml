@@ -2,11 +2,13 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="oaut2-spring-react" />
+        <module name="oauth2-spring" />
         <module name="oauth2-app" />
       </profile>
     </annotationProcessing>
@@ -15,6 +17,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="oaut2-spring-react" options="-parameters" />
       <module name="oauth2-app" options="-parameters" />
+      <module name="oauth2-spring" options="-parameters" />
     </option>
   </component>
 </project>

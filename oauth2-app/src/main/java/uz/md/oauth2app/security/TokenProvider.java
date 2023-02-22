@@ -11,7 +11,7 @@ import java.util.Date;
 public class TokenProvider {
 
 
-    String tokeKey = "UxlamaB20";
+    String tokenKey = "jfskduwgbnbd";
 
     public String createToken(Authentication authentication) {
         UserPrincipal userPrincipal = (UserPrincipal) authentication.getPrincipal();
@@ -23,13 +23,13 @@ public class TokenProvider {
                 .setSubject(userPrincipal.getId().toString())
                 .setIssuedAt(new Date())
                 .setExpiration(expiryDate)
-                .signWith(SignatureAlgorithm.HS512, tokeKey)
+                .signWith(SignatureAlgorithm.HS512, tokenKey)
                 .compact();
     }
 
     public Long getUserIdFromToken(String token) {
         Claims claims = Jwts.parser()
-                .setSigningKey(tokeKey)
+                .setSigningKey(tokenKey)
                 .parseClaimsJws(token)
                 .getBody();
 
@@ -40,7 +40,7 @@ public class TokenProvider {
         try {
             Jwts
                     .parser()
-                    .setSigningKey(tokeKey)
+                    .setSigningKey(tokenKey)
                     .parseClaimsJws(authToken);
             return true;
         } catch (SignatureException ex) {
